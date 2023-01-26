@@ -1,7 +1,3 @@
-// define starter score
-let scoreYou = 0;
-let scoreComputer = 0;
-
 function getUserInput() {
   let userChoice = prompt("what do you chose");
   if (userChoice.toLowerCase() == "rock") {
@@ -63,4 +59,31 @@ function playOneRound() {
     return out;
   }
   return out;
+}
+
+function play() {
+  let scoreYou = 0;
+  let scoreComputer = 0;
+  let val = 0;
+  while (scoreYou < 5 || scoreComputer < 5) {
+    val = playOneRound();
+    if (val == 2) {
+      ++scoreComputer;
+      console.log("you loose");
+    }
+    if (val == 1) {
+      ++scoreYou;
+      console.log("you win");
+    }
+    if (val == 0) {
+      console.log("draw");
+    }
+    if (scoreYou == 5) {
+      console.log("you won");
+    }
+    if (scoreComputer == 5) {
+      console.log("you lost");
+    }
+  }
+  return "thanks for playing";
 }
