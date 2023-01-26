@@ -18,3 +18,49 @@ function getUserInput() {
   }
   return userChoice;
 }
+
+function playOneRound() {
+  let userChoice = getUserInput();
+  let computerChoice = Math.floor(Math.random() * 3);
+
+  // define win and loos conditions
+  if (userChoice == 0 && computerChoice == 0) {
+    out = 0;
+    return out;
+  }
+  if (userChoice == 0 && computerChoice == 1) {
+    out = 1;
+    return out;
+  }
+  if (userChoice == 0 && computerChoice == 2) {
+    out = 2;
+    return out;
+  }
+
+  if (userChoice == 1 && computerChoice == 0) {
+    out = 2;
+    return out;
+  }
+  if (userChoice == 1 && computerChoice == 1) {
+    out = 0;
+    return out;
+  }
+  if (userChoice == 1 && computerChoice == 2) {
+    out = 1;
+    return out;
+  }
+
+  if (userChoice == 2 && computerChoice == 0) {
+    out = 1;
+    return out;
+  }
+  if (userChoice == 2 && computerChoice == 1) {
+    out = 2;
+    return out;
+  }
+  if (userChoice == 2 && computerChoice == 2) {
+    out = 0;
+    return out;
+  }
+  return out;
+}
