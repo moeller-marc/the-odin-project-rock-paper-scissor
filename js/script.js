@@ -1,5 +1,4 @@
-function playOneRound() {
-  let userChoice = getUserInput();
+function playOneRound(userChoice) {
   let computerChoice = Math.floor(Math.random() * 3);
 
   // define win and loos conditions
@@ -45,27 +44,27 @@ function playOneRound() {
 }
 
 function play() {
-  let scoreYou = 0;
+  let scorePlayer = 0;
   let scoreComputer = 0;
   let val = 0;
-  while (scoreYou < 5 || scoreComputer < 5) {
+  while (scorePlayer < 5 || scoreComputer < 5) {
     val = playOneRound();
     if (val == 2) {
       ++scoreComputer;
-      console.log("you loose");
+      console.log("You loose");
     }
     if (val == 1) {
-      ++scoreYou;
-      console.log("you win");
+      ++scorePlayer;
+      console.log("You win");
     }
     if (val == 0) {
       console.log("draw");
     }
-    if (scoreYou == 5) {
-      console.log("you won");
+    if (scorePlayer == 5) {
+      console.log("You won");
     }
     if (scoreComputer == 5) {
-      console.log("you lost");
+      console.log("You lost");
     }
   }
   return "thanks for playing";
