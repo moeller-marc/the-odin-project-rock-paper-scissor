@@ -69,3 +69,28 @@ function play() {
   }
   return "thanks for playing";
 }
+
+// define var for manipulation of the scoreboard
+const scoreComputer = document.querySelector("#scoreComputer");
+const scorePlayer = document.querySelector("#scorePlayer");
+
+// define var for manipulation of the scoreboard
+const buttonRock = document.querySelector("#rock");
+const buttonPaper = document.querySelector("#paper");
+const buttonScissors = document.querySelector("#scissors");
+
+// add event listener for buttons
+// rock
+buttonRock.addEventListener("click", () => {
+  playOneRound(0);
+});
+
+// paper
+buttonPaper.addEventListener("click", () => {
+  playOneRound(1);
+});
+
+// scissors
+buttonScissors.addEventListener("click", () => {
+  playOneRound(2);
+});
