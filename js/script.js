@@ -20,7 +20,7 @@ function outcomeMessage(out) {
   }
 }
 
-function gameOutcome(scorePlayer, scoreComputer) {
+function endGame(scorePlayer, scoreComputer) {
   if (scorePlayer == 5) {
     console.log("You won the game");
     scorePlayer = 0;
