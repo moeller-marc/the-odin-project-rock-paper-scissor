@@ -18,17 +18,21 @@ function outcomeMessage(out) {
     outcome = "You loose";
     scoreComputer++;
   }
+  return outcome;
 }
 
 function endGame(scorePlayer, scoreComputer) {
   if (scorePlayer == 5) {
-    console.log("You won the game");
+    walose = "You won the game";
     scorePlayer = 0;
     scoreComputer = 0;
   }
   if (scoreComputer == 5) {
-    console.log("You lost the game");
+    walose = "You lost the game";
     scorePlayer = 0;
     scoreComputer = 0;
+  } else {
+    walose = "a game is ongoing";
   }
+  return walose;
 }
