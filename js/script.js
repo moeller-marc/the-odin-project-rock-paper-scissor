@@ -1,3 +1,14 @@
+// define var for manipulation of the scoreboard
+const score = document.querySelector("#score");
+const scoreComputerInHtml = document.querySelector("#scoreComputer");
+const scorePlayerInHtml = document.querySelector("#scorePlayer");
+
+// define var for manipulation of the outcome field
+const outcomeField = document.querySelector("#outcomeField");
+
+let outcome = "";
+let scorePlayer = 0;
+let scoreComputer = 0;
 function playOneRound(userChoice) {
   let computerChoice = Math.floor(Math.random() * 3);
 
@@ -31,40 +42,35 @@ function playOneRound(userChoice) {
   if (userChoice == 2 && computerChoice == 2) {
     out = 0;
   }
-  console.log(out);
-  return out;
-}
 
-function play() {
-  let scorePlayer = 0;
-  let scoreComputer = 0;
-  let val = 0;
-  while (scorePlayer < 5 || scoreComputer < 5) {
-    val = playOneRound();
-    if (val == 2) {
-      ++scoreComputer;
-      console.log("You loose");
-    }
-    if (val == 1) {
-      ++scorePlayer;
-      console.log("You win");
-    }
-    if (val == 0) {
-      console.log("draw");
-    }
-    if (scorePlayer == 5) {
-      console.log("You won");
-    }
-    if (scoreComputer == 5) {
-      console.log("You lost");
-    }
+  // display lose/win/draw message
+  if (out == 0) {
+    outcome = "draw";
   }
-  return "thanks for playing";
-}
+  if (out == 1) {
+    outcome = "You win";
+    scorePlayer++;
+  }
+  if (out == 2) {
+    outcome = "You loose";
+    scoreComputer++;
+  }
 
-// define var for manipulation of the scoreboard
-const scoreComputer = document.querySelector("#scoreComputer");
-const scorePlayer = document.querySelector("#scorePlayer");
+  scorePlayerInHtml.textContent = "Points Player: " + scorePlayer;
+  scorePlayerInHtml.textContent = "Points computer: " + scoreComputer;
+
+  // won/lost game message
+  if (scorePlayer == 5) {
+    console.log("You won the game");
+    scorePlayer = 0;
+    scoreComputer = 0;
+  }
+  if (scoreComputer == 5) {
+    console.log("You lost the game");
+    scorePlayer = 0;
+    scoreComputer = 0;
+  }
+}
 
 // define var for manipulation of the scoreboard
 const buttonRock = document.querySelector("#rock");
