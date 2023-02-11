@@ -104,3 +104,15 @@ function play(playerChoice) {
   scoreUpdate(scorePlayer, scoreComputer, outcome);
   walose = endGame(scorePlayer, scoreComputer);
 }
+
+buttonRock.addEventListener("click", () => {
+  play(0);
+});
+
+buttonPaper.addEventListener("click", () => {
+  play(1);
+});
+
+buttonScissors.addEventListener("click", () => {
+  play(2);
+});
