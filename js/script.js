@@ -1,10 +1,19 @@
 const score = document.querySelector("#score");
-const scoreComputerInHtml = document.querySelector("#scoreComputer");
-const scorePlayerInHtml = document.querySelector("#scorePlayer");
 const outcomeField = document.querySelector("#outcomeField");
 const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
+const scorePlayerInHtml = document.createElement("p");
+const scoreComputerInHtml = document.createElement("p");
+
+function scoreReset() {
+  scorePlayerInHtml.textContent = "Points player: 0";
+  scoreComputerInHtml.textContent = "Points player: 0";
+
+  score.appendChild(scorePlayerInHtml);
+  score.appendChild(scoreComputerInHtml);
+}
+scoreReset();
 
 function outcomeMessage(out) {
   if (out == 0) {
