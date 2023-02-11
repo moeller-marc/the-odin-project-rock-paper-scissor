@@ -7,6 +7,9 @@ const scorePlayerInHtml = document.createElement("p");
 const scoreComputerInHtml = document.createElement("p");
 const gameStatus = document.createElement("p");
 
+let scorePlayer = 0;
+let scoreComputer = 0;
+
 function scoreReset() {
   scorePlayerInHtml.textContent = "Points player: 0";
   scoreComputerInHtml.textContent = "Points computer: 0";
@@ -57,4 +60,40 @@ function endGame(scorePlayer, scoreComputer) {
     walose = "a game is ongoing";
   }
   return walose;
+}
+
+function playOneRound(userChoice) {
+  let computerChoice = Math.floor(Math.random() * 3);
+
+  // define win and loos conditions
+  if (userChoice == 0 && computerChoice == 0) {
+    out = 0;
+  }
+  if (userChoice == 0 && computerChoice == 1) {
+    out = 1;
+  }
+  if (userChoice == 0 && computerChoice == 2) {
+    out = 2;
+  }
+
+  if (userChoice == 1 && computerChoice == 0) {
+    out = 2;
+  }
+  if (userChoice == 1 && computerChoice == 1) {
+    out = 0;
+  }
+  if (userChoice == 1 && computerChoice == 2) {
+    out = 1;
+  }
+
+  if (userChoice == 2 && computerChoice == 0) {
+    out = 1;
+  }
+  if (userChoice == 2 && computerChoice == 1) {
+    out = 2;
+  }
+  if (userChoice == 2 && computerChoice == 2) {
+    out = 0;
+  }
+  return out;
 }
