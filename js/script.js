@@ -18,6 +18,8 @@ function scoreReset() {
   score.appendChild(scorePlayerInHtml);
   score.appendChild(scoreComputerInHtml);
   score.appendChild(gameStatus);
+  scoreComputer = 0;
+  scorePlayer = 0;
 }
 scoreReset();
 
@@ -49,51 +51,56 @@ function outcomeMessage(out) {
 function endGame(scorePlayer, scoreComputer) {
   if (scorePlayer == 5) {
     walose = "You won the game";
-    scorePlayer = 0;
-    scoreComputer = 0;
+    scoreReset();
   }
   if (scoreComputer == 5) {
     walose = "You lost the game";
-    scorePlayer = 0;
-    scoreComputer = 0;
+    scoreReset();
   } else {
     walose = "a game is ongoing";
   }
   return walose;
 }
 
-function playOneRound(userChoice) {
+function playOneRound(playerChoice) {
   let computerChoice = Math.floor(Math.random() * 3);
 
   // define win and loos conditions
-  if (userChoice == 0 && computerChoice == 0) {
+  if (playerChoice == 0 && computerChoice == 0) {
     out = 0;
   }
-  if (userChoice == 0 && computerChoice == 1) {
+  if (playerChoice == 0 && computerChoice == 1) {
     out = 1;
   }
-  if (userChoice == 0 && computerChoice == 2) {
+  if (playerChoice == 0 && computerChoice == 2) {
     out = 2;
   }
 
-  if (userChoice == 1 && computerChoice == 0) {
+  if (playerChoice == 1 && computerChoice == 0) {
     out = 2;
   }
-  if (userChoice == 1 && computerChoice == 1) {
+  if (playerChoice == 1 && computerChoice == 1) {
     out = 0;
   }
-  if (userChoice == 1 && computerChoice == 2) {
+  if (playerChoice == 1 && computerChoice == 2) {
     out = 1;
   }
 
-  if (userChoice == 2 && computerChoice == 0) {
+  if (playerChoice == 2 && computerChoice == 0) {
     out = 1;
   }
-  if (userChoice == 2 && computerChoice == 1) {
+  if (playerChoice == 2 && computerChoice == 1) {
     out = 2;
   }
-  if (userChoice == 2 && computerChoice == 2) {
+  if (playerChoice == 2 && computerChoice == 2) {
     out = 0;
   }
   return out;
+}
+
+function play(playerChoice) {
+  out = playOneRound(playerChoice);
+  outcome = outcomeMessage(out);
+  scoreUpdate(scorePlayer, scoreComputer, outcome);
+  walose = endGame(scorePlayer, scoreComputer);
 }
