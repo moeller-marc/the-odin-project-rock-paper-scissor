@@ -8,12 +8,20 @@ const scoreComputerInHtml = document.createElement("p");
 
 function scoreReset() {
   scorePlayerInHtml.textContent = "Points player: 0";
-  scoreComputerInHtml.textContent = "Points player: 0";
+  scoreComputerInHtml.textContent = "Points computer: 0";
 
   score.appendChild(scorePlayerInHtml);
   score.appendChild(scoreComputerInHtml);
 }
 scoreReset();
+
+function scoreUpdate(scorePlayer, scoreComputer) {
+  scorePlayerInHtml.textContent = "Points Player: " + scorePlayer;
+  scoreComputerInHtml.textContent = "Points computer: " + scoreComputer;
+
+  score.appendChild(scorePlayerInHtml);
+  score.appendChild(scoreComputerInHtml);
+}
 
 function outcomeMessage(out) {
   if (out == 0) {
