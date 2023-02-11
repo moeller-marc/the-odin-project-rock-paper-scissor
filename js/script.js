@@ -6,9 +6,34 @@ const buttonScissors = document.querySelector("#scissors");
 const scorePlayerInHtml = document.createElement("p");
 const scoreComputerInHtml = document.createElement("p");
 const gameStatus = document.createElement("p");
+const winsPlayer = document.createElement("p");
+const winsComputer = document.createElement("p");
+
+winsPlayer.textContent = "wins player: 0";
+winsComputer.textContent = "wins computer: 0";
+
+score.appendChild(winsPlayer);
+score.appendChild(winsComputer);
+
+let winsOfPlayer = 0;
+let winsOfComputer = 0;
 
 let scorePlayer = 0;
 let scoreComputer = 0;
+
+function winUpdate(winner) {
+  if (winner == "play") {
+    winsOfPlayer++;
+  }
+  if (winner == "comp") {
+    winsOfComputer++;
+  }
+  winsPlayer.textContent = "wins player: " + winsOfPlayer;
+  winsComputer.textContent = "wins computer: " + winsOfComputer;
+
+  score.appendChild(winsPlayer);
+  score.appendChild(winsComputer);
+}
 
 function scoreReset() {
   scorePlayerInHtml.textContent = "Points player: 0";
@@ -51,10 +76,12 @@ function outcomeMessage(out) {
 function endGame(scorePlayer, scoreComputer) {
   if (scorePlayer == 5) {
     walose = "You won the game";
+    winUpdate("play");
     scoreReset();
   }
   if (scoreComputer == 5) {
     walose = "You lost the game";
+    winUpdate("comp");
     scoreReset();
   } else {
     walose = "a game is ongoing";
